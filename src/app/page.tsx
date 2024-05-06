@@ -1,5 +1,8 @@
 import Banner from "./_components/Banner/Banner";
 import CategoryList from "./_components/category-list/category-list";
+import ServicesList from "./_components/services/ServicesList";
+import SubCategoryList from "./_components/sub-category-list/SubCategoryList";
+import SubBannerList from "./_components/subbanners/SubBannerList";
 
 export default function Home() {
   return (
@@ -7,6 +10,9 @@ export default function Home() {
       <div className="container pt-8">
       <Banner/>
       <CategoryList/>
+      <SubBannerList/>
+      <ServicesList/>
+      <SubCategoryList/>
       </div>
     </div>
   );

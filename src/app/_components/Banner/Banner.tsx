@@ -13,14 +13,14 @@ import Autoplay from "embla-carousel-autoplay";
 
 export default async function Banner() {
   const data = await GetBanners()
-  console.log(data);
+  // console.log(data);
  
   return (
     <div className="">
       {data ? (
         <Carousel
           // plugins={[plugin.current]}
-          className="w-full h-[525px] relative border bg-white"
+          className="w-full h-[525px] relative bg-white"
         >
           <CarouselContent className="">
             {data?.results?.map((banner) => (
