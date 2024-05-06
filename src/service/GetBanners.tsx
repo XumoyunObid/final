@@ -12,14 +12,14 @@ export interface BannersType {
   }[];
 }
 
-const GetBanners = async (): Promise<BannersType[]> => {
+const GetBanners = async (): Promise<BannersType> => {
   try {
     const res = await fetch("http://135.181.108.207/banner/");
     if (!res.ok) {
       throw new Error("Failed to fetch banners");
     }
     const data = await res.json();
-    return data as BannersType[];
+    return data;
   } catch (error) {
     throw new Error("Failed to get banners!");
   }

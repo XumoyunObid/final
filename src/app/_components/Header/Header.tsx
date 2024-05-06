@@ -2,10 +2,9 @@
 import React from "react";
 import logo from "/public/images/logo.png";
 import Image from "next/image";
-import { FaBars, FaRegStar } from "react-icons/fa";
+import { FaBars, FaRegStar, FaRegUser } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { Button } from "@/components/ui/button";
-import { IoLogoBuffer } from "react-icons/io5";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Search from "../Search/Search";
 import Link from "next/link";
@@ -31,7 +30,7 @@ const Header = () => {
           </div>
           <div className="hidden lg:flex items-center gap-5">
             <button className="flex">
-              <IoLogoBuffer className="text-4xl hover:text-primary" />
+              <FaRegUser  className="text-3xl hover:text-primary"/>
               <Badge className="text-black rounded-full py-1 px-2">0</Badge>
             </button>
             <button className="flex">
