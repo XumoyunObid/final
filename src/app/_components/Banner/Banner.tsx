@@ -32,7 +32,7 @@ export default async function Banner() {
                 />
                 <div className="absolute top-[30%] left-[15%] w-[450px]">
                   <h1
-                    className="text-[36px]" data-aos="fade-up"
+                    className="text-[36px] text-white" data-aos="fade-up"
                   >
                     {banner.description && parse(banner.description)}
                   </h1>
