@@ -6,10 +6,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import GetCategories from "@/service/GetCategories";
 
-const SearchSelect = async () => {
-  const categories = await GetCategories()
+const SearchSelect = () => {
   
   return (
     <Select>
@@ -18,9 +16,7 @@ const SearchSelect = async () => {
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {categories.results.map((item)=>(
-          <SelectItem key={item.id} value={item.title}>{item.title}</SelectItem>
-          ))}
+          <SelectItem value="categories">Categories</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

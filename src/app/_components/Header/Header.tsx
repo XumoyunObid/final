@@ -1,23 +1,21 @@
-"use client";
 import React from "react";
 import logo from "/public/images/logo.png";
 import Image from "next/image";
-import { FaBars, FaRegStar, FaRegUser } from "react-icons/fa";
-import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { FaBars } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Search from "../Search/Search";
 import Link from "next/link";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import LargeSearch from "../Search/LargeSearch";
-import { Badge } from "@/components/ui/badge";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
     <div className="pb-[20px]">
       <div className="container">
         <div className="flex items-center justify-between py-6 ">
-          <Image src={logo} alt="Logo" width={140} />
+          <Link href="/"><Image src={logo} alt="Logo" width={140} /></Link>
           <div className="hidden lg:flex items-center gap-10">
             <div className="flex items-center gap-2">
               <TfiHeadphoneAlt className="text-[36px]" />
@@ -28,20 +26,7 @@ const Header = () => {
             </div>
             <LargeSearch />
           </div>
-          <div className="hidden lg:flex items-center gap-5">
-            <button className="flex">
-              <FaRegUser  className="text-3xl hover:text-primary"/>
-              <Badge className="text-black rounded-full py-1 px-2">0</Badge>
-            </button>
-            <button className="flex">
-              <FaRegStar className="text-4xl hover:text-primary" />
-              <Badge className="text-black rounded-full py-1 px-2">0</Badge>
-            </button>
-            <button className="flex">
-              <HiOutlineShoppingBag className="text-4xl hover:text-primary" />
-              <Badge className="text-black rounded-full py-1 px-2">0</Badge>
-            </button>
-          </div>
+          <Navbar/>
           <div className="lg:hidden">
             <Sheet>
               <SheetTrigger asChild>

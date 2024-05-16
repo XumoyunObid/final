@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import TopDealsCard from "./TopDealsCard";
+import Link from "next/link";
 
 
 const TopDeals = async () => {
@@ -20,12 +21,12 @@ const TopDeals = async () => {
         <CarouselContent className="">
           {products?.results?.slice(0, 4).map((item) => (
             <CarouselItem key={item.id}>
-              <TopDealsCard  {...item}/>
+              <Link href={`/products/${item.id}`}><TopDealsCard  {...item}/></Link>
             </CarouselItem>
             ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute top-[-30px] left-[300px] lg:left-[655px] border-none text-3xl text-gray-500 font-thin bg-transparent hover:bg-transparent hover:text-primary" />
-        <CarouselNext className="absolute top-[-30px] right-[5px] border-none text-3xl text-gray-500 font-thin bg-transparent hover:bg-transparent hover:text-primary" />
+        <CarouselPrevious className="absolute top-[-30px] left-[300px] lg:left-[655px] border-none text-3xl text-primary font-thin bg-transparent hover:bg-transparent hover:text-black" />
+        <CarouselNext className="absolute top-[-30px] right-[5px] border-none text-3xl text-primary font-thin bg-transparent hover:bg-transparent hover:text-black" />
       </Carousel>
     </div>
   );

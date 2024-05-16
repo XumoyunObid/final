@@ -1,11 +1,15 @@
-import Banner from "./_components/Banner/Banner";
-import TopDeals from "./_components/TopDeals/TopDeals";
-import RecentProducts from "./_components/RecentProducts/RecentProducts";
-import CategoryList from "./_components/category-list/category-list";
-import ServicesList from "./_components/services/ServicesList";
-import SubCategoryList from "./_components/sub-category-list/SubCategoryList";
-import SubBannerList from "./_components/subbanners/SubBannerList";
-import SecondSubBanner from "./_components/subbanners/SecondSubBanner";
+import dynamic from "next/dynamic";
+
+const RecentProducts = dynamic(() => import("./_components/RecentProducts/RecentProducts"), {ssr: false});
+const Banner = dynamic(() => import("./_components/Banner/Banner"), {ssr: false});
+const TopDeals = dynamic(() => import("./_components/TopDeals/TopDeals"), {ssr: false});
+const CategoryList = dynamic(()=> import("./_components/category-list/category-list"), {ssr: false});
+const ServicesList = dynamic(()=> import("./_components/services/ServicesList"), {ssr: false});
+const SubCategoryList = dynamic(()=> import("./_components/sub-category-list/SubCategoryList"), {ssr: false});
+const SubBannerList = dynamic(()=> import("./_components/subbanners/SubBannerList"), {ssr: false});
+const SecondSubBanner = dynamic(()=> import("./_components/subbanners/SecondSubBanner"), {ssr: false});
+
+
 
 export default function Home() {
   return (

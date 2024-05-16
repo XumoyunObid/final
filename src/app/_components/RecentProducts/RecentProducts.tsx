@@ -8,7 +8,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import RecentProductCard from "./ReecentProductCard";
-import RecentProductCardHover from "./RecentCardHover"
 
 
 const RecentProducts = async () => {
@@ -27,8 +26,8 @@ const RecentProducts = async () => {
             </CarouselItem>
             ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute top-[-30px] left-[300px] lg:left-[675px] border-none text-3xl text-gray-500 font-thin bg-transparent hover:bg-transparent hover:text-primary" />
-        <CarouselNext className="absolute top-[-30px] right-[5px] border-none text-3xl text-gray-500 font-thin bg-transparent hover:bg-transparent hover:text-primary" />
+        <CarouselPrevious className="absolute top-[-30px] left-[300px] lg:left-[675px] border-none text-3xl text-primary font-thin bg-transparent hover:bg-transparent hover:text-black" />
+        <CarouselNext className="absolute top-[-30px] right-[5px] border-none text-3xl text-primary font-thin bg-transparent hover:bg-transparent hover:text-black" />
       </Carousel>
     </div>
   );
