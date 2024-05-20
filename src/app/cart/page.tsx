@@ -1,13 +1,15 @@
 "use client"
 import React from 'react'
-import { RootState } from '@/providers/redux/store'
+import { RootState } from '@/redux/store'
 import { useSelector } from 'react-redux'
 import { Button } from '@/components/ui/button'
-import CartCard from '../_components/CartCard/CartCard'
 import Banner from './components/banner'
 import Image from 'next/image'
 import emptyCart from "/public/images/empty-cart.png"
 import { useRouter } from 'next/navigation'
+import dynamic from "next/dynamic"
+
+const CartCard = dynamic(()=>import('./components/CartCard/CartCard'), {ssr: false});
 
 const Cart = () => {
   const {products}=useSelector((state:RootState)=>state)

@@ -8,6 +8,7 @@ interface Product {
   other_detail: string;
   userPrice: string;
   userCount: number;
+  is_available:boolean;
 }
 
 interface ProductState {

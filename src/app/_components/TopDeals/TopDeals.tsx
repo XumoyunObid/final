@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import TopDealsCard from "./TopDealsCard";
 import Link from "next/link";
+import { Props } from "./TopDealsCard";
 
 
 const TopDeals = async () => {
@@ -21,7 +22,7 @@ const TopDeals = async () => {
         <CarouselContent className="">
           {products?.results?.slice(0, 4).map((item) => (
             <CarouselItem key={item.id}>
-              <Link href={`/products/${item.id}`}><TopDealsCard  {...item}/></Link>
+              <Link href={`/products/${item.id}`}><TopDealsCard  {...item as Props}/></Link>
             </CarouselItem>
             ))}
         </CarouselContent>

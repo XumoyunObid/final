@@ -2,19 +2,27 @@
 import React, { useState } from "react";
 import parse from "html-react-parser";
 
+
 interface ImageItem {
   image: string;
   image_id: number;
 }
 
-interface Props {
-  title: string;
+export interface Props {
+  attribute_value: {}[];
+  images: ImageItem[];
+  id: number;
+  is_available: boolean;
   other_detail: string;
   price: string;
-  images: ImageItem[];
+  price_with_discount: string | null;
+  product: number;
   quantity: number;
-  is_available: boolean;
+  title: string;
+  userPrice: string;
+  userCount: number;
 }
+
 
 const TopDealsCard = ({
   title,

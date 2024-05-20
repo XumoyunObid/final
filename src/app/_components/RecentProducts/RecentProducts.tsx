@@ -7,7 +7,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import RecentProductCard from "./ReecentProductCard";
+import dynamic from "next/dynamic";
+const RecentProductCard = dynamic(()=> import("./ReecentProductCard"), {ssr: false})
 
 
 const RecentProducts = async () => {

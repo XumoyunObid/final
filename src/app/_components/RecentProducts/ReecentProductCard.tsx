@@ -3,24 +3,30 @@ import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 import { IoStarOutline } from "react-icons/io5";
 import { useDispatch} from "react-redux";
-import { addProduct, removeProduct } from "@/providers/redux/slices/product-slice";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaRegHeart, FaShoppingCart, FaHeart } from "react-icons/fa";
 import Link from "next/link";
-import { RootState } from "@/providers/redux/store";
+import { RootState } from "@/redux/store";
 import { useSelector } from 'react-redux';
+import { addProduct, removeProduct } from "@/redux/slices/product-slice";
+import { addWishlist, removeWishlist } from "@/redux/slices/wishlist-slice";
 
 
-interface Props {
-  id: number;
-  title: string;
+export interface Props {
+  attribute_value: {}[];
   images: {
     image: string;
     image_id: number;
   }[];
+  id: number;
+  is_available: boolean;
+  other_detail: string;
   price: string;
-  other_detail:string;
+  price_with_discount: string | null;
+  product: number;
+  quantity: number;
+  title: string;
   userPrice: string;
-  userCount: number
+  userCount: number;
 }
 
 const RecentProductCard = (
@@ -31,6 +37,7 @@ const RecentProductCard = (
   const img =  props.images[0].image;
   const dispatch = useDispatch()
   const [showBtn, setShowBtn] = useState(false);
+  const [wishlistBtn,setWishlistBtn] = useState(false)
   const id = props.id;
 
   useEffect(() => {
@@ -46,13 +53,24 @@ const RecentProductCard = (
     dispatch(removeProduct(props.id))
     setShowBtn(!showBtn)
   }
+
+  const handleLike = ()=> {
+    dispatch(addWishlist(props))
+    setWishlistBtn(!wishlistBtn)
+  }
+
+  const handleDisLike = ()=> {
+    dispatch(removeWishlist(props.id))
+    setWishlistBtn(!wishlistBtn)
+  }
   return (
-    <div className="p-[4px] lg:w-[226px] lg:h-[348px] flex flex-col bg-white gap-3 hover:shadow-lg relative">
+    <div className="p-[4px] lg:w-[226px] lg:h-[348px] flex flex-col bg-white gap-3 hover:shadow-lg relative border rounded-md">
       <Link href={`/products/${props.id}`}>
       <div className="flex items-center justify-center">
         <img src={img} alt="" className="w-[216px] h-[216px] object-contain" />
       </div>
       </Link>
+      {!wishlistBtn? <button onClick={handleLike} className="absolute top-1 right-1 rounded-full flex items-center justify-center bg-primary p-2"><FaRegHeart className="" /></button> : <button onClick={handleDisLike} className="absolute top-1 right-1 rounded-full flex items-center justify-center bg-black p-2"><FaHeart className="text-primary" /></button>}
       <div className="flex flex-col gap-3 text-center">
         <h2 className="text-primary text-sm">{props.title}</h2>
         <div className="flex items-center gap-1 justify-center">
