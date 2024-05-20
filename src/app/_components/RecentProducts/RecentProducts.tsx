@@ -8,7 +8,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import dynamic from "next/dynamic";
-const RecentProductCard = dynamic(()=> import("./ReecentProductCard"), {ssr: false})
+const RecentProductCard = dynamic(()=> import("./ReecentProductCard"), {ssr: false}) 
+import { Props } from "./ReecentProductCard";
 
 
 const RecentProducts = async () => {
@@ -23,7 +24,7 @@ const RecentProducts = async () => {
         <CarouselContent >
           {products?.results?.slice(4, 12).map((item) => (
             <CarouselItem key={item.id} className="md:basis-1/3 lg:basis-1/3">
-              <RecentProductCard {...item}/>
+              <RecentProductCard {...item as Props}/>
             </CarouselItem>
             ))}
         </CarouselContent>

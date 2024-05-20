@@ -16,13 +16,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={rubik.className}>
         <ReduxProvider>
+        <div className="flex flex-col justify-between h-screen">
         <header>
           <Header />
         </header>
-        {children}
+        <main>{children}</main>
         <footer>
           <Footer/>
         </footer>
+        </div>
         </ReduxProvider>
       </body>
     </html>
