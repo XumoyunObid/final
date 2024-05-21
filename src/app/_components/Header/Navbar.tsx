@@ -6,12 +6,14 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { RootState } from '@/redux/store';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react'
 
 const Navbar = () => {
   const { products } = useSelector((state: RootState) => state)
   const { wishlist } = useSelector((state: RootState) => state)
   const router = useRouter()
-
+  const session = useSession()
+  console.log(session)
   const handleNavToCart = () => {
     router.push("/cart")
   }
