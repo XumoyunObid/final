@@ -7,7 +7,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Search from "../Search/Search";
 import Link from "next/link";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
-import LargeSearch from "../Search/LargeSearch";
+import dynamic from "next/dynamic";
+const LargeSearch = dynamic(()=> import("../Search/LargeSearch"), {ssr: false})
 import Navbar from "./Navbar";
 
 const Header = () => {

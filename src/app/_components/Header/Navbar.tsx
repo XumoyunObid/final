@@ -20,14 +20,17 @@ const Navbar = () => {
     router.push("/wishlist")
   }
 
-  // Loading state handling
+  const handleLogin = ()=> {
+    router.push("/login")
+  }
+
   if (typeof wishlist.wishlistCount === 'undefined' || typeof products.count === 'undefined') {
-    return null; // or a loading spinner
+    return null; 
   }
 
   return (
     <div className="hidden lg:flex items-center gap-5">
-      <button className="flex">
+      <button className="flex" onClick={handleLogin}>
         <FaRegUser className="text-3xl hover:text-primary" />
       </button>
       <button className="flex" onClick={handleWishlist}>
